@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Meme Generator
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,43 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+  <ion-card>
+    <ion-card-content>
+      This is content, without any paragraph or header tags,
+      within an ion-card-content element.
+
+      <div class="meme">
+        <ion-textarea [style.color]="selectedColor" class="meme-text top" placeholder="Top Text" clearInput
+          cdkDragBoundary=".meme" cdkDrag>
+        </ion-textarea>
+        <ion-textarea [style.color]="selectedColor" class="meme-text bottom" placeholder="Bottom Text"
+          cdkDragBoundary=".meme" cdkDrag clearInput>
+        </ion-textarea>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="options">
+    <ion-chip outline color="secondary">
+      <ion-icon name="arrow-up-outline"></ion-icon>
+      <ion-label>Capitalize</ion-label>
+    </ion-chip>
+
+    <ion-chip outline color="primary" (click)="showPallete()">
+      <ion-icon name="brush-outline"></ion-icon>
+      <ion-label>Font Color</ion-label>
+    </ion-chip>
+
+  </div>
+
+  <div *ngIf="showColorPallete" class="animate__animated animate__fadeInRight options">
+    <div style="display: inline-block; list-style-type: none;" *ngFor="let item of colorList">
+      <ion-chip style="border: 1px solid black;" [style.background]="item.color" (click)="changeColor(item.sl)">
+        <ion-icon *ngIf="item.selected" name="checkmark-circle-outline"></ion-icon>
+        <ion-icon *ngIf="!item.selected" name="close-circle-outline"></ion-icon>
+      </ion-chip>
+    </div>
+  </div>
+
 </ion-content>

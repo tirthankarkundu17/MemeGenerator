@@ -1,0 +1,26 @@
+.meme {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: aqua;
+    background-image: url('../../assets/images/26am.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.meme-text {
+    width: 300px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.bottom {
+    top: 60%;
+}
+
+.options {
+    margin-left: 16px;
+    margin-top: 0;
+}
